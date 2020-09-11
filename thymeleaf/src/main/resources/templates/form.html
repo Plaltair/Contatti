@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Inserisci i seguenti campi</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+  
+	<div class="container-fullwidth">
+		<nav class="navbar navbar-dark bg-primary">
+			<h1 class="text-light font-weight-bold">Inserisci i seguenti valori:</h1>
+		</nav>
+	</div>
+	<br>
+
+    <div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<form role="form" th:action="@{/conferma}" th:object="${persona}" method="post">
+					<div class="form-group">
+						 
+						<label for="nome">
+							Nome
+						</label>
+						<input type="text" class="form-control" id="nome" th:field="*{nome}">
+						<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+					</div>
+					<div class="form-group">
+						 
+						<label for="cognome">
+							Cognome
+						</label>
+						<input type="text" class="form-control" id="cognome" th:field="*{cognome}">
+						<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></div>
+					</div>
+					<div class="form-group">
+						 
+						<label for="telefono">
+							Telefono
+						</label>
+						<input type="number" class="form-control" id="telefono" th:field="*{telefono}">
+						<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
+					</div>
+					<div class="form-group">
+						 
+						<label for="targa">
+							Email
+						</label>
+						<input type="email" class="form-control" id="email" th:field="*{email}">
+						<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+					</div>
+					<div class="form-group">
+						 
+						<label for="citta">
+							Indirizzo
+						</label>
+						<input type="text" class="form-control" id="indirizzo" th:field="*{indirizzo}">
+						<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('indirizzo')}" th:errors="*{indirizzo}"></div>
+					</div>
+					<button type="submit" class="btn btn-primary">
+						Inserisci valori
+					</button>
+					<a href="/contatti" class="btn btn-success">
+						Torna alla lista
+					</a>
+				</form>
+			</div>
+		</div>
+	</div>
+  </body>
+</html>
